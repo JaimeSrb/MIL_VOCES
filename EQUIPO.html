@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿QUIÉNES SOMOS?</title>
+    <style>
+        /* Reset general para body y html */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilo del encabezado */
+        .header {
+            width: 100%;
+            padding: 40px 0;
+            font-size: 3em;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .header .title {
+            font-size: 82px;
+            font-weight: bold;
+        }
+
+        /* Imagen responsiva */
+        img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title" id="title">INTEGRANTES</div>
+    </div>
+    
+    <img src="EQUIPO.jpg" alt="Imagen Ajustable">
+
+    <script>
+        const palabras = [
+            { texto: "AMO LA NATURALEZA", color: "#FF5733", fuente: "Arial, sans-serif" },
+            { texto: "NO MÁS PERROS", color: "#FFC300", fuente: "'Verdana, sans-serif'" },
+            { texto: "LAS VACAS SON LINDAS", color: "#3498DB", fuente: "'Courier New', monospace" },
+            { texto: "MUCHA TEORIA", color: "#D2B48C", fuente: "'Georgia', serif" },
+            { texto: "MUCHO SILENCIO", color: "#58D68D", fuente: "'Tahoma', sans-serif" },
+            { texto: "INTEGRANTES", color: "#00275e", fuente: "'Times New Roman', Times, serif" }
+        ];
+        
+        let index = 0;
+
+        function cambiarPalabra() {
+            const titleElement = document.getElementById("title");
+            titleElement.textContent = palabras[index].texto;
+            titleElement.style.color = palabras[index].color;
+            titleElement.style.fontFamily = palabras[index].fuente;
+            index++;
+
+            if (index < palabras.length) {
+                setTimeout(cambiarPalabra, 500);
+            }
+        }
+
+        // Iniciar el ciclo de palabras
+        cambiarPalabra();
+    </script>
+</body>
+</html>
