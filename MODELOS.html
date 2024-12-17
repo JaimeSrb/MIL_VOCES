@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODELOS</title>
+    <style>
+        /* Reset general para body y html */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilo del encabezado */
+        .header {
+            width: 100%;
+            padding: 40px 0;
+            font-size: 3em;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .title {
+            font-size: 82px;
+            font-weight: bold;
+        }
+
+        /* Contenedor principal con imagen de fondo */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .background {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Cuadrícula encima de la imagen */
+        .parent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            gap: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        /* Estilos para cada celda con videos */
+        .parent div {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .parent div video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .div1 {
+            grid-column: span 4 / span 4;
+            grid-row: span 4 / span 4;
+        }
+
+        .div2 {
+            grid-column: span 2 / span 2;
+            grid-row: span 5 / span 5;
+            grid-column-start: 5;
+        }
+
+        .div3 {
+            grid-column: span 2 / span 2;
+            grid-row: span 2 / span 2;
+            grid-column-start: 7;
+        }
+
+        .div4 {
+            grid-column: span 2 / span 2;
+            grid-row: span 4 / span 4;
+            grid-column-start: 7;
+            grid-row-start: 3;
+        }
+
+        .div5 {
+            grid-column: span 2 / span 2;
+            grid-row: span 4 / span 4;
+            grid-row-start: 5;
+        }
+
+        .div6 {
+            grid-column: span 2 / span 2;
+            grid-row: span 2 / span 2;
+            grid-column-start: 3;
+            grid-row-start: 5;
+        }
+
+        .div7 {
+            grid-column: span 2 / span 2;
+            grid-row: span 2 / span 2;
+            grid-column-start: 3;
+            grid-row-start: 7;
+        }
+
+        .div8 {
+            grid-column: span 2 / span 2;
+            grid-row: span 3 / span 3;
+            grid-column-start: 5;
+            grid-row-start: 6;
+        }
+
+        .div9 {
+            grid-column: span 2 / span 2;
+            grid-row: span 2 / span 2;
+            grid-column-start: 7;
+            grid-row-start: 7;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title" id="title">MODELOS</div>
+    </div>
+
+    <div class="container">
+        <img src="MAPA.jpg" alt="Imagen Ajustable" class="background">
+        <div class="parent">
+            <div class="div1"><video src="MD1.mp4" autoplay loop muted></video></div>
+            <div class="div2"><video src="MD2.MOV" autoplay loop muted></video></div>
+            <div class="div3"><video src="MD3.mp4" autoplay loop muted></video></div>
+            <div class="div4"><video src="MD4.mp4" autoplay loop muted></video></div>
+            <div class="div5"><video src="MD5.mp4" autoplay loop muted></video></div>
+            <div class="div6"><video src="MD6.MOV" autoplay loop muted></video></div>
+            <div class="div7"><video src="MD7.mp4" autoplay loop muted></video></div>
+            <div class="div8"><video src="MD8.mp4" autoplay loop muted></video></div>
+            <div class="div9"><video src="MD9.mp4" autoplay loop muted></video></div>
+        </div>
+    </div>
+
+    <script>
+        const palabras = [
+            { texto: "TENGO SUEÑO", color: "#00FFFF", fuente: "Arial, sans-serif" },
+            { texto: "AMIGOS DE POR VIDA", color: "#800000", fuente: "'Verdana, sans-serif'" },
+            { texto: "DIFERENTES IDEAS", color: "#808000", fuente: "'Courier New', monospace" },
+            { texto: "MERCADITA", color: "#800080", fuente: "'Georgia', serif" },
+            { texto: "AULAS LIGERAS", color: "#008080", fuente: "'Tahoma', sans-serif" },
+            { texto: "MODELOS", color: "#00275e", fuente: "'Times New Roman', Times, serif" }
+        ];
+        
+        let index = 0;
+
+        function cambiarPalabra() {
+            const titleElement = document.getElementById("title");
+            titleElement.textContent = palabras[index].texto;
+            titleElement.style.color = palabras[index].color;
+            titleElement.style.fontFamily = palabras[index].fuente;
+            index++;
+
+            if (index < palabras.length) {
+                setTimeout(cambiarPalabra, 500);
+            }
+        }
+
+        // Iniciar el ciclo de palabras
+        cambiarPalabra();
+    </script>
+</body>
+</html>
